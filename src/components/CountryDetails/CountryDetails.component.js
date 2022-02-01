@@ -19,7 +19,7 @@ export function CountryDetails() {
         <div className="col-md-4">
           <img
             className="img-fluid rounded-start"
-            src={country.flags && country.flags.svg}
+            src={country.flags?.svg}
             alt={`${countryName} Flag`}
           />
         </div>
@@ -27,9 +27,7 @@ export function CountryDetails() {
           <h5 className="card-header">{countryName}</h5>
           <div className="card-body">
             <h5 className="card-title">Special title treatment</h5>
-            <p className="card-text">
-              Official Name: {country.name && country.name.official}
-            </p>
+            <p className="card-text">Official Name: {country.name?.official}</p>
             <p className="card-text">Capital: {country.capital}</p>
             <p className="card-text">
               Currencies:{" "}

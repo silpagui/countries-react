@@ -1,7 +1,8 @@
 import React from "react";
 import { CountryRow } from "../CountryRow/CountryRow.component";
 
-export function CountriesList({ filteredCountries }) {
+export function CountriesList({ countries }) {
+  const hasCountries = countries.length > 1;
   return (
     <table className="table table-hover">
       <thead className="table-light">
@@ -14,8 +15,8 @@ export function CountriesList({ filteredCountries }) {
         </tr>
       </thead>
       <tbody>
-        {filteredCountries.length > 1 ? (
-          filteredCountries.map((country) => {
+        {hasCountries ? (
+          countries.map((country) => {
             return (
               <CountryRow
                 key={country.name.common}

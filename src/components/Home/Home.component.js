@@ -26,7 +26,7 @@ export function Home() {
   return (
     <div>
       <Header handleInputOnChange={handleInputOnChange} />
-      <CountriesList filteredCountries={filteredCountries} />
+      <CountriesList countries={filteredCountries} />
     </div>
   );
 }
