@@ -26,10 +26,7 @@ export function CountryDetails() {
         <div className="col-md-8">
           <h5 className="card-header">{countryName}</h5>
           <div className="card-body">
-            <h5 className="card-title">Special title treatment</h5>
-            <p className="card-text">
-              Official Name: {country?.name?.official}
-            </p>
+            <h5 className="card-title">{country?.name?.official}</h5>
             <p className="card-text">Capital: {country?.capital}</p>
             <p className="card-text">
               Currencies:{" "}
