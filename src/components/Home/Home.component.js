@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useFetch } from "../../hooks/useFetch.hook";
 import { Header } from "../Header/Header.component";
 import { CountriesList } from "../CountriesList/CountriesList.component";
+import { Loader } from "../Loader/Loader.component";
 
 export function Home() {
-  const [countriesList, setCountriesList] = useState([]);
   const [searchCountry, setSearchCountry] = useState("");
 
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => response.json())
-      .then((data) => {
-        setCountriesList(data);
-      });
-  }, [setCountriesList]);
+  const { data, isLoading } = useFetch("https://restcountries.com/v3.1/all");
 
   function handleInputOnChange(event) {
     setSearchCountry(event.target.value);
   }
 
   const search = searchCountry.toLowerCase();
-  const filteredCountries = countriesList.filter((country) =>
+  const filteredCountries = data.filter((country) =>
     country.name.common.toLowerCase().includes(search)
   );
 
   return (
     <div>
       <Header handleInputOnChange={handleInputOnChange} />
-      <CountriesList countries={filteredCountries} />
+      {isLoading ? <Loader /> : <CountriesList countries={filteredCountries} />}
     </div>
   );
 }
