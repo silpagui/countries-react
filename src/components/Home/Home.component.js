@@ -19,14 +19,14 @@ export function Home() {
   }
 
   const search = searchCountry.toLowerCase();
-  const filteredCountry = countriesList.filter((country) =>
+  const filteredCountries = countriesList.filter((country) =>
     country.name.common.toLowerCase().includes(search)
   );
 
   return (
     <div>
       <Header handleInputOnChange={handleInputOnChange} />
-      <CountriesList filteredCountry={filteredCountry} />
+      <CountriesList filteredCountries={filteredCountries} />
     </div>
   );
 }

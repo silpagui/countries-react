@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { CountryRow } from "../CountryRow/CountryRow.component";
 
-export function CountriesList({ filteredCountry }) {
+export function CountriesList({ filteredCountries }) {
   return (
     <table className="table table-hover">
       <thead className="table-light">
@@ -14,29 +14,17 @@ export function CountriesList({ filteredCountry }) {
         </tr>
       </thead>
       <tbody>
-        {filteredCountry.length > 1 ? (
-          filteredCountry.map((country) => {
+        {filteredCountries.length > 1 ? (
+          filteredCountries.map((country) => {
             return (
-              <tr key={country.name.common}>
-                <td>
-                  <img
-                    src={country.flags.svg}
-                    width="40"
-                    alt={`${country.name.common} Flag`}
-                  />
-                </td>
-                <td>
-                  <Link to={`/${country.name.common}`}>
-                    {country.name.common}
-                  </Link>
-                </td>
-                <td>{country.population}</td>
-                <td>
-                  {country.languages &&
-                    Object.values(country.languages).join(", ")}
-                </td>
-                <td>{country.region}</td>
-              </tr>
+              <CountryRow
+                key={country.name.common}
+                name={country.name.common}
+                flagSvg={country.flags.svg}
+                population={country.population}
+                languages={country.languages}
+                region={country.region}
+              />
             );
           })
         ) : (
