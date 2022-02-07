@@ -2,7 +2,7 @@ import React from "react";
 import { CountryRow } from "../CountryRow/CountryRow.component";
 
 export function CountriesList({ countries }) {
-  const hasCountries = countries.length > 1;
+  const hasCountries = countries.length > 0;
   return (
     <table className="table table-hover">
       <thead className="table-light">
