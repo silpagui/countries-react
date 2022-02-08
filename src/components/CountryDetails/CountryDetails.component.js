@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { useFetch } from "../../hooks/useFetch.hook";
+import { loadCountryDetailsThunk } from "../../store/actions/countryDetails.actions";
 import { Loader } from "../Loader/Loader.component";
 
 export function CountryDetails() {
   let { countryName } = useParams();
+  const dispatch = useDispatch();
 
-  const { data, isLoading } = useFetch(
-    `https://restcountries.com/v3.1/name/${countryName}?fullText=true`
-  );
-  const country = data[0];
+  const isLoading = useSelector((store) => store.countryDetails.isLoading);
+  const country = useSelector((store) => store.countryDetails.data);
+
+  useEffect(() => {
+    if (country?.name?.common !== countryName) {
+      dispatch(loadCountryDetailsThunk(countryName));
+    }
+  }, [dispatch, countryName, country]);
 
   return isLoading ? (
     <Loader />
