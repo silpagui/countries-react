@@ -5,7 +5,7 @@ export function SearchInput({ handleInputOnChange }) {
     <input
       type="text"
       placeholder="Search country"
-      className="form-control"
+      className="form-control flex-grow-1"
       onChange={handleInputOnChange}
     />
   );

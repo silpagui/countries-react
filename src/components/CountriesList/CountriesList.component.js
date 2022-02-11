@@ -12,6 +12,7 @@ export function CountriesList({ countries }) {
           <th scope="col">Population</th>
           <th scope="col">Language</th>
           <th scope="col">Region</th>
+          <th scope="col">Select</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +31,7 @@ export function CountriesList({ countries }) {
           })
         ) : (
           <tr>
-            <td colSpan={5}>No Country Found</td>
+            <td colSpan={6}>No Country Found</td>
           </tr>
         )}
       </tbody>

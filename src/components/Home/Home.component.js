@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../Header/Header.component";
 import { CountriesList } from "../CountriesList/CountriesList.component";
 import { Loader } from "../Loader/Loader.component";
-import { useDispatch, useSelector } from "react-redux";
 import { loadingAllCountriesThunk } from "../../store/actions/countries.actions";
 
 export function Home() {
