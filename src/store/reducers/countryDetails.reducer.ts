@@ -1,15 +1,23 @@
-import { CountryDetailsAction } from "../actions/countryDetails.actions";
+import { CountryDetailsAction, CountryDetailsStore } from "../store.models";
 
 const countryDetailsInitialState = {
-  data: {},
+  data: {
+    name: { common: "", official: "" },
+    currencies: {},
+    capital: [],
+    flags: { svg: "" },
+    population: 0,
+    languages: {},
+    region: "",
+  },
   isLoading: true,
   errorLoading: "",
 };
 
 export function countryDetailsReducer(
-  prevStore = countryDetailsInitialState,
+  prevStore: CountryDetailsStore = countryDetailsInitialState,
   action: CountryDetailsAction
-) {
+): CountryDetailsStore {
   switch (action.type) {
     case "START_LOADING_COUNTRY_DETAILS":
       return {

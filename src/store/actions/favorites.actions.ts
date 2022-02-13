@@ -1,21 +1,8 @@
-type AddFavoriteAction = {
-  type: "ADD_FAVORITE";
-  payload: string;
-};
-
-type DeleteFavoriteAction = {
-  type: "DELETE_FAVORITE";
-  payload: string;
-};
-
-type DeleteAllFavoritesAction = {
-  type: "DELETE_ALL_FAVORITES";
-};
-
-export type FavoritesAction =
-  | AddFavoriteAction
-  | DeleteFavoriteAction
-  | DeleteAllFavoritesAction;
+import {
+  AddFavoriteAction,
+  DeleteAllFavoritesAction,
+  DeleteFavoriteAction,
+} from "../store.models";
 
 export function addFavorite(favorite: string): AddFavoriteAction {
   return {

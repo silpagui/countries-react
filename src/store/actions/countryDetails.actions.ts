@@ -1,21 +1,9 @@
-type LoadCountryDetailsAction = {
-  type: "LOAD_COUNTRY_DETAILS";
-  payload: any;
-};
-
-type StartLoadingAllCountriesAction = {
-  type: "START_LOADING_COUNTRY_DETAILS";
-};
-
-type ErrorLoadingAllCountriesAction = {
-  type: "ERROR_LOADING_COUNTRY_DETAILS";
-  payload: string;
-};
-
-export type CountryDetailsAction =
-  | LoadCountryDetailsAction
-  | StartLoadingAllCountriesAction
-  | ErrorLoadingAllCountriesAction;
+import {
+  CountryDetailsActionThunk,
+  ErrorLoadingCountryDetailsAction,
+  LoadCountryDetailsAction,
+  StartLoadingCountryDetailsAction,
+} from "../store.models";
 
 export function loadCountryDetails(data: any): LoadCountryDetailsAction {
   return {
@@ -24,21 +12,23 @@ export function loadCountryDetails(data: any): LoadCountryDetailsAction {
   };
 }
 
-export function startLoadingCountryDetails(): StartLoadingAllCountriesAction {
+export function startLoadingCountryDetails(): StartLoadingCountryDetailsAction {
   return {
     type: "START_LOADING_COUNTRY_DETAILS",
   };
 }
 
-export function errorLoadingCountryDetails(): ErrorLoadingAllCountriesAction {
+export function errorLoadingCountryDetails(): ErrorLoadingCountryDetailsAction {
   return {
     type: "ERROR_LOADING_COUNTRY_DETAILS",
     payload: "Oops, error Loading Country!",
   };
 }
 
-export function loadCountryDetailsThunk(countryName: string) {
-  return function (dispatch: any) {
+export const loadCountryDetailsThunk: CountryDetailsActionThunk = (
+  countryName
+) => {
+  return function (dispatch) {
     dispatch(startLoadingCountryDetails());
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((response) => response.json())
@@ -47,4 +37,4 @@ export function loadCountryDetailsThunk(countryName: string) {
       })
       .catch((error) => dispatch(errorLoadingCountryDetails()));
   };
-}
+};

@@ -1,4 +1,4 @@
-import { CountriesAction } from "../actions/countries.actions";
+import { CountriesAction, CountriesStore } from "../store.models";
 
 const countriesInitialState = {
   data: [],
@@ -7,9 +7,9 @@ const countriesInitialState = {
 };
 
 export function countriesReducer(
-  prevStore = countriesInitialState,
+  prevStore: CountriesStore = countriesInitialState,
   action: CountriesAction
-) {
+): CountriesStore {
   switch (action.type) {
     case "START_LOADING_ALL_COUNTRIES":
       return {
