@@ -5,9 +5,27 @@ import {
   addFavorite,
   deleteFavorite,
 } from "../../store/actions/favorites.actions";
+import { RootReducer } from "../../store/store";
 
-export function CountryRow({ flagSvg, name, population, languages, region }) {
-  const favorites = useSelector((store) => store.favorites.favorites);
+interface CountryRowProps {
+  flagSvg: string;
+  name: string;
+  population: number;
+  languages: { [key: string]: string };
+  region: string;
+}
+
+export function CountryRow({
+  flagSvg,
+  name,
+  population,
+  languages,
+  region,
+}: CountryRowProps) {
+  const favorites = useSelector(
+    (store: RootReducer) => store.favorites.favorites
+  );
+
   const dispatch = useDispatch();
 
   const isAddedAsFav = favorites.find((fav) => fav === name);

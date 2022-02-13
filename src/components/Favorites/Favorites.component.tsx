@@ -5,12 +5,15 @@ import {
   deleteAllFavorites,
   deleteFavorite,
 } from "../../store/actions/favorites.actions";
+import { RootReducer } from "../../store/store";
 
 export function Favorites() {
   const dispatch = useDispatch();
 
-  const countries = useSelector((store) => store.countries.data);
-  const favorites = useSelector((store) => store.favorites.favorites);
+  const countries = useSelector((store: RootReducer) => store.countries.data);
+  const favorites = useSelector(
+    (store: RootReducer) => store.favorites.favorites
+  );
 
   const favoritesFiltered = countries.filter((country) =>
     favorites.find((fav) => fav === country.name.common)

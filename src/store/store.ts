@@ -10,4 +10,6 @@ const rootReducer = combineReducers({
   favorites: favoritesReducer,
 });
 
+export type RootReducer = ReturnType<typeof rootReducer>;
+
 export const appStore = createStore(rootReducer, applyMiddleware(thunk));

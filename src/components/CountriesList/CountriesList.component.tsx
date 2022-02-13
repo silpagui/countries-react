@@ -1,7 +1,12 @@
 import React from "react";
+import { Country } from "../../store/store.models";
 import { CountryRow } from "../CountryRow/CountryRow.component";
 
-export function CountriesList({ countries }) {
+interface CountryListProps {
+  countries: Country[];
+}
+
+export function CountriesList({ countries }: CountryListProps) {
   const hasCountries = countries.length > 0;
   return (
     <table className="table table-hover">

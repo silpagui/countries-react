@@ -1,11 +1,12 @@
 import {
+  Country,
   CountryDetailsActionThunk,
   ErrorLoadingCountryDetailsAction,
   LoadCountryDetailsAction,
   StartLoadingCountryDetailsAction,
 } from "../store.models";
 
-export function loadCountryDetails(data: any): LoadCountryDetailsAction {
+export function loadCountryDetails(data: Country): LoadCountryDetailsAction {
   return {
     type: "LOAD_COUNTRY_DETAILS",
     payload: data,

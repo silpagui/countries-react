@@ -43,7 +43,7 @@ export type CountriesStore = {
 
 export type LoadCountryDetailsAction = {
   type: "LOAD_COUNTRY_DETAILS";
-  payload: any;
+  payload: Country;
 };
 
 export type StartLoadingCountryDetailsAction = {
