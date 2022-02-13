@@ -1,8 +1,4 @@
-import {
-  TYPE_START_LOADING_ALL_COUNTRIES,
-  TYPE_LOAD_ALL_COUNTRIES,
-  TYPE_ERROR_LOADING_ALL_COUNTRIES,
-} from "../actions/countries.actions";
+import { CountriesAction } from "../actions/countries.actions";
 
 const countriesInitialState = {
   data: [],
@@ -10,15 +6,18 @@ const countriesInitialState = {
   errorLoading: "",
 };
 
-export function countriesReducer(prevStore = countriesInitialState, action) {
+export function countriesReducer(
+  prevStore = countriesInitialState,
+  action: CountriesAction
+) {
   switch (action.type) {
-    case TYPE_START_LOADING_ALL_COUNTRIES:
+    case "START_LOADING_ALL_COUNTRIES":
       return {
         ...prevStore,
         isLoading: true,
       };
 
-    case TYPE_LOAD_ALL_COUNTRIES:
+    case "LOAD_ALL_COUNTRIES":
       return {
         ...prevStore,
         data: action.payload,
@@ -26,7 +25,7 @@ export function countriesReducer(prevStore = countriesInitialState, action) {
         errorLoading: "",
       };
 
-    case TYPE_ERROR_LOADING_ALL_COUNTRIES:
+    case "ERROR_LOADING_ALL_COUNTRIES":
       return {
         ...prevStore,
         isLoading: false,

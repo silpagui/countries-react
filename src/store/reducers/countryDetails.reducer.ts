@@ -1,8 +1,4 @@
-import {
-  TYPE_LOAD_COUNTRY_DETAILS,
-  TYPE_START_LOADING_COUNTRY_DETAILS,
-  TYPE_ERROR_LOADING_COUNTRY_DETAILS,
-} from "../actions/countryDetails.actions";
+import { CountryDetailsAction } from "../actions/countryDetails.actions";
 
 const countryDetailsInitialState = {
   data: {},
@@ -12,16 +8,16 @@ const countryDetailsInitialState = {
 
 export function countryDetailsReducer(
   prevStore = countryDetailsInitialState,
-  action
+  action: CountryDetailsAction
 ) {
   switch (action.type) {
-    case TYPE_START_LOADING_COUNTRY_DETAILS:
+    case "START_LOADING_COUNTRY_DETAILS":
       return {
         ...prevStore,
         isLoading: true,
       };
 
-    case TYPE_LOAD_COUNTRY_DETAILS:
+    case "LOAD_COUNTRY_DETAILS":
       return {
         ...prevStore,
         data: action.payload,
@@ -29,7 +25,7 @@ export function countryDetailsReducer(
         errorLoading: "",
       };
 
-    case TYPE_ERROR_LOADING_COUNTRY_DETAILS:
+    case "ERROR_LOADING_COUNTRY_DETAILS":
       return {
         ...prevStore,
         isLoading: false,
