@@ -1,14 +1,10 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootReducer } from "../../store/store";
 import { SearchInput } from "../SearchInput/SearchInput.component";
 
-interface SearchInputProps {
-  handleInputOnChange: (event: FormEvent<HTMLInputElement>) => void;
-}
-
-export function Header({ handleInputOnChange }: SearchInputProps) {
+export function Header() {
   const favorites = useSelector(
     (store: RootReducer) => store.favorites.favorites
   );
@@ -17,7 +13,7 @@ export function Header({ handleInputOnChange }: SearchInputProps) {
     <header className="mb-4">
       <h1>Rest countries</h1>
       <div className="d-flex">
-        <SearchInput handleInputOnChange={handleInputOnChange} />
+        <SearchInput />
         <Link to="/favorites" className="btn btn-danger">
           Favorites({favorites.length})
         </Link>

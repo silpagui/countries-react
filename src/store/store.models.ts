@@ -30,15 +30,22 @@ export type LoadingAllCountriesActionThunk = () => (
   dispatch: Dispatch<CountriesAction>
 ) => void;
 
+export type SearchInputOnChange = {
+  type: "SEARCH_INPUT_ON_CHANGE";
+  payload: string;
+};
+
 export type CountriesAction =
   | LoadAllCountriesAction
   | StartLoadingAllCountriesAction
-  | ErrorLoadingAllCountriesAction;
+  | ErrorLoadingAllCountriesAction
+  | SearchInputOnChange;
 
 export type CountriesStore = {
   data: Country[];
   isLoading: boolean;
   errorLoading: string;
+  searchInput: string;
 };
 
 export type LoadCountryDetailsAction = {

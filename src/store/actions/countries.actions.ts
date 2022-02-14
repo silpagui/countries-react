@@ -3,6 +3,7 @@ import {
   ErrorLoadingAllCountriesAction,
   LoadAllCountriesAction,
   LoadingAllCountriesActionThunk,
+  SearchInputOnChange,
   StartLoadingAllCountriesAction,
 } from "../store.models";
 
@@ -23,6 +24,13 @@ export function errorLoadingAllCountries(): ErrorLoadingAllCountriesAction {
   return {
     type: "ERROR_LOADING_ALL_COUNTRIES",
     payload: "Oops, error Loading!",
+  };
+}
+
+export function searchInputOnChange(data: string): SearchInputOnChange {
+  return {
+    type: "SEARCH_INPUT_ON_CHANGE",
+    payload: data,
   };
 }
 

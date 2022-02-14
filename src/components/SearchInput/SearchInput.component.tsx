@@ -1,10 +1,14 @@
 import React, { FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { searchInputOnChange } from "../../store/actions/countries.actions";
 
-interface SearchInputProps {
-  handleInputOnChange: (event: FormEvent<HTMLInputElement>) => void;
-}
+export function SearchInput() {
+  const dispatch = useDispatch();
 
-export function SearchInput({ handleInputOnChange }: SearchInputProps) {
+  function handleInputOnChange(event: FormEvent<HTMLInputElement>) {
+    dispatch(searchInputOnChange(event.currentTarget.value));
+  }
+
   return (
     <input
       type="text"

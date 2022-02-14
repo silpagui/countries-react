@@ -4,6 +4,7 @@ const countriesInitialState = {
   data: [],
   isLoading: true,
   errorLoading: "",
+  searchInput: "",
 };
 
 export function countriesReducer(
@@ -30,6 +31,12 @@ export function countriesReducer(
         ...prevStore,
         isLoading: false,
         errorLoading: action.payload,
+      };
+
+    case "SEARCH_INPUT_ON_CHANGE":
+      return {
+        ...prevStore,
+        searchInput: action.payload,
       };
 
     default:
