@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/countries/static/css/main.40f99bdb.css",
-    "main.js": "/countries/static/js/main.a58403b6.js",
-    "static/media/bootstrap-icons.woff?": "/countries/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
-    "static/media/bootstrap-icons.woff2?": "/countries/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
-    "index.html": "/countries/index.html",
-    "main.40f99bdb.css.map": "/countries/static/css/main.40f99bdb.css.map",
-    "main.a58403b6.js.map": "/countries/static/js/main.a58403b6.js.map"
+    "main.css": "/countries-react/static/css/main.02f4b0d8.css",
+    "main.js": "/countries-react/static/js/main.a58403b6.js",
+    "static/media/bootstrap-icons.woff?": "/countries-react/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
+    "static/media/bootstrap-icons.woff2?": "/countries-react/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
+    "index.html": "/countries-react/index.html",
+    "main.02f4b0d8.css.map": "/countries-react/static/css/main.02f4b0d8.css.map",
+    "main.a58403b6.js.map": "/countries-react/static/js/main.a58403b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.40f99bdb.css",
+    "static/css/main.02f4b0d8.css",
     "static/js/main.a58403b6.js"
   ]
 }
